@@ -1,18 +1,5 @@
----
-- name: Example server setup
-  hosts: all
-  become: yes
+- hosts: localhost
+  become: yes    # if you need sudo
   tasks:
-    - name: Update apt cache
-      apt:
-        update_cache: yes
-
-    - name: Install nginx
-      apt:
-        name: nginx
-        state: present
-
-    - name: Start nginx service
-      service:
-        name: nginx
-        state: started
+    - name: Example task
+      command: echo "Hello"
